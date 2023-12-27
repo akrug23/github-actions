@@ -2,7 +2,7 @@ name: CI-CD
 
 on:
   push:
-    branches: master
+    branches: main
 
 jobs:
   build-js:
@@ -43,7 +43,7 @@ jobs:
     name: Deploy to Production
     runs-on: ubuntu-latest
     needs: [build-js, test-php]
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
       - name: Download build assets
