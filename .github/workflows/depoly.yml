@@ -32,5 +32,5 @@ jobs:
       - name: Composer install
         run: composer install
       - name: Run Tests
-        run: php artisan list
+        run: php artisan test
         # run: ./vendor/bin/phpunit
