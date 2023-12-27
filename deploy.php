@@ -14,9 +14,9 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('actions.baldmanweb.com')
+host('162.144.0.194')
     ->set('remote_user', 'akrug23')
-    ->set('deploy_path', '~/github-actions');
+    ->set('deploy_path', '/actions.baldmanweb.com');
 
 // Hooks
 
