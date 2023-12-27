@@ -12,7 +12,7 @@ jobs:
         run: |
           yarn install
           yarn build
-      # cat public/mix-manifest.json # See asset versions in log
+          cat public/mix-manifest.json # See asset versions in log
       - name: Upload build files
         uses: actions/upload-artifact@v4
         with:
