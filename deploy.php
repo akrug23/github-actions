@@ -15,6 +15,7 @@ add('writable_dirs', []);
 // Hosts
 
 host('162.144.0.194')
+    ->set('git_ssh_command', 'ssh')
     ->set('remote_user', 'akrug23')
     ->set('deploy_path', '/actions.baldmanweb.com');
 
