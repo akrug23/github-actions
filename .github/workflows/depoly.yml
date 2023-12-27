@@ -30,7 +30,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2 # Use your PHP version
-          extension-csv: mbstring, bcmath # Setup any required extensions for tests
+          extensions: mbstring, bcmath # Setup any required extensions for tests
       - name: Composer install
         run: composer install
       - name: Prepare Laravel Application
