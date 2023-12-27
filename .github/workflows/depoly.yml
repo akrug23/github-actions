@@ -31,8 +31,10 @@ jobs:
           extensions: mbstring, bcmath # Setup any required extensions for tests
       - name: Composer install
         run: composer install
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
       - name: Run Tests
         run: php artisan test
-        env:
-          DOT_ENV: ${{ vars.DOT_ENV }}
         # run: ./vendor/bin/phpunit
