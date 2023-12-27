@@ -4,6 +4,8 @@ on:
   push:
     branches: main
 
+concurrency: production_environment
+
 jobs:
   build-js:
     name: Build Js/Css
@@ -55,15 +57,20 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: 8.2
-          extension-csv: mbstring, bcmath
+          extensions: mbstring, bcmath
       - name: Composer install
         run: composer install
-      - name: Setup Deployer
-        uses: atymic/deployer-php-action@master
+      - name: Deploy
+        uses: deployphp/action@v1
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
-      - name: Deploy to Prod
-        env:
-          DOT_ENV: ${{ secrets.DOT_ENV }}
-        run: dep deploy production --tag=${{ env.GITHUB_REF }} -vvv
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          dep: deploy
+      # - name: Setup Deployer
+      #   uses: atymic/deployer-php-action@master
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      #     ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      # - name: Deploy to Prod
+      #   env:
+      #     DOT_ENV: ${{ secrets.DOT_ENV }}
+      #   run: dep deploy production --tag=${{ env.GITHUB_REF }} -vvv
