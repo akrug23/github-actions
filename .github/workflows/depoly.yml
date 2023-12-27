@@ -33,4 +33,6 @@ jobs:
         run: composer install
       - name: Run Tests
         run: php artisan test
+        env:
+          DOT_ENV: ${{ vars.DOT_ENV }}
         # run: ./vendor/bin/phpunit
