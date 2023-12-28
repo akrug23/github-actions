@@ -15,7 +15,7 @@ add('writable_dirs', []);
 // Hosts
 
 host('actions.baldmanweb.com')
-    ->setHostname('baldmanweb.com')
+    ->setHostname('162.144.0.194')
     ->setRemoteUser('akrug23')
     ->setConfigFile('.ssh/config')
     ->setPort('2222')
