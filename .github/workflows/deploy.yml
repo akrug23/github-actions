@@ -64,6 +64,7 @@ jobs:
         uses: deployphp/action@v1
         with:
           private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           dep: deploy
       # - name: Setup Deployer
       #   uses: atymic/deployer-php-action@master
