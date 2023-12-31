@@ -14,12 +14,12 @@ add('writable_dirs', []);
 
 // Hosts
 
-host('actions.baldmanweb.com')
-    ->setHostname('162.144.0.194')
-    ->setRemoteUser('akrug23')
-    ->setConfigFile('.ssh/config')
-    ->setPort('2222')
-    ->setDeployPath('~/actions.baldmanweb.com');
+host('ec2-18-222-48-241.us-east-2.compute.amazonaws.com')
+    ->setHostname('aws.baldmanweb.com')
+    ->setRemoteUser('ec2-user')
+    // ->setConfigFile('.ssh/config')
+    ->setPort('22')
+    ->setDeployPath('/var/www/aws/');
 
 // Hooks
 
